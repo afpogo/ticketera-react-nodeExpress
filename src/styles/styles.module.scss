@@ -1,0 +1,74 @@
+@use './sass/index.module.scss' as v;
+.dashboard {
+    width: 100%;
+    height: 100vh;
+    display: grid;
+    grid-template: 0.5fr 5fr / 1fr 4fr;
+    grid-template-areas:
+        "logo degrade"
+        "sidebar content";
+    // gap: 2.7px;
+    // background-color: v.$color-secondary;
+    background-image: linear-gradient(to right bottom, #8c7a9f, #937da2, #9a80a5, #a283a8, #a986ab, #b089ad, #b68baf, #bd8eb1, #c491b3, #cc94b4, #d398b6, #da9bb7);
+
+    .sidebar {
+        grid-area: sidebar;
+        width: 100%;
+        // @include v.border(v.$color-clsec);
+        // background-image: linear-gradient(to bottom, #8c7a9f, #937da2, #9a80a5, #a283a8, #a986ab, #b089ad, #b68baf, #bd8eb1, #c491b3, #cc94b4, #d398b6, #da9bb7);
+        position: relative;
+        display: grid;
+    }
+
+    .content {
+        grid-area: content;
+        width: 100%;
+        // @include v.border(v.$color-brand);
+    }
+
+    .logo {
+        grid-area: logo;
+        width: 100%;
+        // background-color: v.$color-secondary;
+        // background-image: linear-gradient(to top, #8c7a9f, #967ea3, #9f82a7, #a986ab, #b38aae);
+    }
+
+    .degrade {
+        grid-area: degrade;
+        width: 100%;
+        // background-image: linear-gradient(to right top, #8c7a9f, #937da2, #9a80a5, #a283a8, #a986ab, #b089ad, #b68baf, #bd8eb1, #c491b3, #cc94b4, #d398b6, #da9bb7);
+    }
+
+    .content {
+        grid-area: content;
+        width: 100%;
+        // background-image: linear-gradient(to right bottom, #8c7a9f, #937da2, #9a80a5, #a283a8, #a986ab, #b089ad, #b68baf, #bd8eb1, #c491b3, #cc94b4, #d398b6, #da9bb7);
+        display: grid;
+    }
+}
+
+.scopeBar {
+    width: 90%;
+    height: 7%;
+    @include v.border();
+    position: absolute;
+    top: 15%;
+    left: 3%;
+    border-radius: 1.2rem;
+    // padding-inline-start: 1rem;
+    padding-block-start: .8rem;
+    padding-block-end: .8rem;
+    & button {
+        width: 100%;
+        height: 100%;
+    }
+}
+
+.scopeMain {
+    width: 90%;
+    height: 97%;
+    background-color: v.$color-alert;
+    justify-self: center;
+    align-self: center;
+    border-radius: 20px;
+}
