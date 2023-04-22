@@ -1,0 +1,9 @@
+@use '@/styles/sass/index.module.scss' as v;
+.scopeBar {
+    width: 100%;
+    height: 70%;
+    border-radius: 1rem;
+    padding-block-start: 4rem;
+    padding-block-end: .8rem;
+    text-align: center;
+}

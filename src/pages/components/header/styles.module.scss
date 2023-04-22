@@ -1,0 +1,14 @@
+@use '@/styles/sass/index.module.scss' as v;
+
+.header {
+    grid-area: logo;
+    width: 100%;
+    background-image: linear-gradient(to top, #8c7a9f, #967ea3, #9f82a7, #a986ab, #b38aae);
+    @include v.flex(row, space-around);
+    flex-wrap: wrap;
+
+    .logo {
+        width: min-content;
+        padding: v.$paddPage;
+    }
+}

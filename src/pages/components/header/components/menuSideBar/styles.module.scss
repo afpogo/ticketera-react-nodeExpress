@@ -1,0 +1,139 @@
+@use "@/styles/sass/index.module.scss" as v;
+
+.menuSideBar {
+    width: max-content;
+    @include v.flex();
+
+    & > /* Definir estilos para el botón */
+    .boton {
+        /* Estilos iniciales del botón */
+        @include v.flex(column);
+        width: 40px;
+        height: 40px;
+        cursor: pointer;
+        position: relative;
+        /* Transiciones para las animaciones */
+        & > span {
+            border-radius: 5px;
+            background: wheat;
+            display: block;
+            width: 25px;
+            height: 3px;
+            margin: 2px auto;
+            transition: all 0.3s ease-in-out;
+            position: absolute;
+            &:first-child {
+                top: 26%;
+            }
+            &:last-child {
+                bottom: 27%;
+            }
+            // transition: all 0.3s ease, transform 0.3s ease;
+        }
+
+        &.active {
+            & > .topLine {
+                // transform: rotate(45deg);
+                animation: top 600ms ease-in-out 1 alternate forwards;
+                // topto 600ms ease-in-out 1 alternate forwards
+            }
+            & > .middle {
+                animation: middle 400ms ease 210ms 1 alternate forwards;
+                // middleto 600ms ease-in-out 1 alternate forwards
+            }
+            & > .bottom {
+                animation: down 600ms ease-in-out 1 alternate forwards;
+                // , downto 600ms ease-in-out 1 alternate forwards
+            }
+        }
+
+        &.inactive {
+            & > .topLine {
+                // transform: rotate(45deg);
+                animation: top 600ms ease-in-out 1 alternate forwards;
+                // topto 600ms ease-in-out 1 alternate forwards
+            }
+            & > .middle {
+                animation: middle 400ms ease 1 alternate forwards;
+                // middleto 600ms ease-in-out 1 alternate forwards
+            }
+            & > .bottom {
+                animation: down 600ms ease-in-out 1 alternate forwards;
+                // , downto 600ms ease-in-out 1 alternate forwards
+            }
+        }
+
+        // & > .midLine {
+
+        // }
+
+    }
+}
+
+@keyframes top {
+    0% {
+        top: 29%;
+    }
+    50% {
+        top: 35%;
+        transform: rotate(20deg);
+    }
+    100% {
+        top: 45%;
+        transform: rotate(45deg);
+    }
+}
+@keyframes middle {
+    0% {
+        transform: rotate(0deg);
+    }
+    50% {
+        transform: rotate(-20deg);
+    }
+    100% {
+        transform: rotate(-45deg);
+    }
+}
+@keyframes down {
+    0% {
+        transform: rotate(0deg);
+    }
+    50% {
+        transform: rotate(180deg);
+        width: 100%;
+    }
+    100% {
+        width: 0;
+    }
+}
+
+// @keyframes topback {
+//     0% {
+
+//     }
+//     50% {
+//         transform: rotate(10deg);
+//     }
+//     100% {
+//         transform: rotate(30deg);
+//     }
+// }
+// @keyframes middback {
+//     from {
+//         transform: rotate(10deg);
+//     }
+//     to {
+//         transform: rotate(30deg);
+//     }
+// }
+// @keyframes downback {
+//     0% {
+//         width: 0;
+//     }
+//     50% {
+//         width: 100%;
+//         transform: rotate(180);
+//     }
+//     100% {
+//     }
+// }

@@ -1,0 +1,13 @@
+@use '@/styles/sass/index.module.scss' as v;
+.sidebar {
+    grid-area: sidebar;
+    width: 100%;
+    background-image: linear-gradient(to bottom, #8c7a9f, #937da2, #9a80a5, #a283a8, #a986ab, #b089ad, #b68baf, #bd8eb1, #c491b3, #cc94b4, #d398b6, #da9bb7);
+    position: relative;
+    overflow: hidden;
+    padding: v.$paddPage;
+
+    & > a {
+        width: 100%;
+    }
+}

@@ -1,0 +1,107 @@
+@use "@/styles/sass/index.module.scss" as v;
+
+.login {
+    width: 100%;
+    height: 100vh;
+    min-height: 100vh;
+    background-image: linear-gradient(127deg, #351f9765, #5e27cd65, #2e86de65, #ee525265);
+    position: absolute;
+    color: v.$color-brand;
+    top: 0;
+    left: 0;
+    z-index: z("modal");
+}
+
+.login__form {
+    width: 300px;
+    height: 500px;
+    background-color: #f1f1f1;
+    padding: 80px 40px;
+    border-radius: 8px;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+
+    & h1 {
+        font-size: v.fs(huge);
+        font-weight: 600;
+        text-align: center;
+        margin-bottom: 60px;
+        background-image: linear-gradient(to right, v.$grey 0%, v.$color-brand-dart 100%);
+        background-position: bottom;
+        background-repeat: no-repeat;
+        background-size: 58% 1.8px;
+    }
+
+    & .txtb {
+        border-bottom: 2px solid #adadad;
+        position: relative;
+        margin: 30px 0;
+
+        input {
+            width: 100%;
+            font-size: 1rem;
+            color: v.$color-brand-dart;
+            border: none;
+            outline: none;
+            background: none;
+            padding: 0 5px;
+            height: 40px;
+        }
+
+        span::before {
+            content: attr(data-placeholder);
+            position: absolute;
+            top: 50%;
+            left: 5px;
+            color: #adadad;
+            transform: translateY(-50%);
+            z-index: -1;
+            transition: 0.5s;
+        }
+
+        span::after {
+            content: "";
+            width: 0%;
+            position: absolute;
+            top: 100%;
+            left: 0;
+            height: 2px;
+            background-image: linear-gradient(127deg, #341f97, #5f27cd, #2e86de, #ee5253);
+            transition: 0.5s;
+        }
+    }
+
+    & .focus {
+        span::before {
+            top: -5%;
+        }
+        span::after {
+            width: 100%;
+        }
+    }
+
+    & .logbtn {
+        display: block;
+        width: 100%;
+        height: 40px;
+        border: none;
+        background-image: linear-gradient(127deg, #341f97, #5f27cd, #2e86de, #ee5253);
+        background-size: 200%;
+        color: #fff;
+        outline: none;
+        cursor: pointer;
+        transition: 0.5s;
+
+        &:hover {
+            background-position: right;
+        }
+    }
+
+    & .bottom_text {
+        margin-top: 35px;
+        text-align: center;
+        font-size: 0.8rem;
+    }
+}

@@ -133,6 +133,12 @@ $pagemaxwidth:       768px;
 $radius:             5px;
 $hovertransition:    .3s;
 $animationtime:      .8s;
+$paddPage:            .25rem;
+
+$menu-time-animation-openclose:   1s;
+$menu-time-animation-hambone:   $menu-time-animation-openclose * 0.75;
+$menu-time-animation-hambtwo:   $menu-time-animation-openclose * 0.25;
+
 
 
 
@@ -208,11 +214,12 @@ $size-vars: (
     * This is mainly to hold back designers from adding 200 different greys ;)
     */
    $black:                rgb(0,0,0);
-   $darkergrey:             lighten(#464838, 20%);
-   $darkgrey:               lighten(#464838, 30%);
-   $grey:                   #A89574;
-   $lightgrey:            #ABAD9A;
-   $lightergrey:              #95B0B2;
+   $darkergrey:             #43655A;
+   $darkgrey:               #628281;
+   $grey:                   #889FA5;
+   $lightgrey:            #B1BDC5;
+   $lightergrey:              #DADDE2;
+   $ultragrey: #EFFAFF;
    $white:                  rgb(255,255,255);
 
    $color-borders:          $lightgrey;
