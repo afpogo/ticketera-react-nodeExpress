@@ -404,15 +404,15 @@
 
     .btnSubmit {
         @extend %btn;
-        width: 28%;
+        width: 18%;
         text-decoration: none;
         font-weight: 700;
         font-size: 1.2rem;
         line-height: 2.9rem;
-        position: relative;
-        left: 13%;
+        // position: relative;
+        // left: 10%;
         transition: all .5s ease-in;
-        transform: translateX(-50%);
+        // transform: translateX(-50%);
         overflow: hidden;
         border: 1px solid $color-brand-dart;
         color: $color-brand-dart;

@@ -21,11 +21,11 @@
         height: 45vh;
         @include v.flex(column);
 
-        & > p:first-child {
+        & > p:last-child {
             font-size: v.fs(enormhuge);
             color: v.$color-error;
         }
-        & > p:last-child {
+        & > p:first-child {
             font-size: v.fs(small);
             line-height: 0px;
             color: v.$darkergrey;

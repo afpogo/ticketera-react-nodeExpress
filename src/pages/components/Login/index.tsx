@@ -8,11 +8,13 @@ export default function Login() {
     const router = useRouter();
     const [focus, setFocus] = useState({
         user: false,
-        password: false
+        password: false,
+        chair: false,
     });
     const [login, setLogin] = useState({
         user: '',
-        password: ''
+        password: '',
+        chair: ''
     })
 
     const handleFocus = (e: ChangeEvent<HTMLInputElement>) => {
@@ -26,6 +28,12 @@ export default function Login() {
             setFocus({
                 ...focus,
                 [e.target.name]: !focus.password
+            })
+        }
+        if (e.target.name === 'chair' && e.target.value === '') {
+            setFocus({
+                ...focus,
+                [e.target.name]: !focus.chair
             })
         }
     }
@@ -43,6 +51,12 @@ export default function Login() {
                 [e.target.name]: !focus.password,
             })
         }
+        if (e.target.name === 'chair' && e.target.value === '') {
+            setFocus({
+                ...focus,
+                [e.target.name]: !focus.chair,
+            })
+        }
     }
 
     const handleChange = (e: ChangeEvent<HTMLInputElement>) => {
@@ -54,10 +68,11 @@ export default function Login() {
 
     const handleSubmit = (event: FormEvent<HTMLFormElement>) => {
         event.preventDefault();
-        const {user, password} = login;
-        console.log(user);
+        const {user, password, chair} = login;
+        // console.log(user);
         localStorage.setItem('username', user);
         localStorage.setItem('password', password);
+        localStorage.setItem('chair', chair);
         router.push('/escritorio');
     }
     return (
@@ -87,6 +102,18 @@ export default function Login() {
                         value={login.password}
                     />
                     <span data-placeholder='Password' />
+                </div>
+                <div className={clsx(styles.txtb, {[styles.focus]: focus.chair})}>
+                    <input
+                        onChange={handleChange}
+                        onFocus={handleFocus}
+                        onBlur={handleFocusOut}
+                        type='number'
+                        id='chair'
+                        name='chair'
+                        value={login.chair}
+                    />
+                    <span data-placeholder='Chair' />
                 </div>
                 {/* <div className={this.state.focusInitialInput}>
             <input

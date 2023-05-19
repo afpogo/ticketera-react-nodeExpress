@@ -1,46 +1,37 @@
+import { useContext, useState, useEffect } from 'react';
+import { ISocketContext, SocketContext } from "../context/SocketContext";
 import useHideMenu from "../hooks/useHideMenu";
+// import { useSocket } from "../hooks/useSockets";
 import Historial from "./components/historial";
 import Turnos from "./components/turnos";
 import styles from "./styles.module.scss";
+import { ITicket } from '../crearTicket';
+import { getUltimos } from '../helpers/getUltimos';
 function Cola() {
+
   useHideMenu(true);
-  const data = [
-    {
-      ticketNo: 33,
-      escritorio: 3,
-      agente: "Fernando Herrera",
-    },
-    {
-      ticketNo: 34,
-      escritorio: 4,
-      agente: "Melissa Flores",
-    },
-    {
-      ticketNo: 35,
-      escritorio: 5,
-      agente: "Carlos Castro",
-    },
-    {
-      ticketNo: 36,
-      escritorio: 3,
-      agente: "Fernando Herrera",
-    },
-    {
-      ticketNo: 37,
-      escritorio: 3,
-      agente: "Fernando Herrera",
-    },
-    {
-      ticketNo: 38,
-      escritorio: 2,
-      agente: "Melissa Flores",
-    },
-    {
-      ticketNo: 39,
-      escritorio: 5,
-      agente: "Carlos Castro",
-    },
-  ];
+  const { socket } = useContext(SocketContext) as ISocketContext;
+  const [tickets, setTickets] = useState<ITicket[]>([]);
+
+  // Conectamos el socket con el servidor
+  socket?.connect();
+
+  // Realizamos la llamada de los ultimos tickets para que se carguen con la pagina
+  useEffect(() => {
+    getUltimos()
+    .then(setTickets);
+  }, [])
+
+  // Escuchamos los eventos ticket
+  useEffect(() => {
+    socket?.on('update-queue_ticket-asignado', (tickets) => {
+      setTickets(tickets);
+    })
+    return () => {
+      socket?.off('update-queue_ticket-asignado');
+    }
+  }, [socket]);
+
   return (
     <section className={styles.colaCont}>
       <div className={styles.title}>
@@ -49,15 +40,15 @@ function Cola() {
       <div className={styles.turneroCont}>
         <div className={styles.lista_turnos}>
           <ul>
-            {data
-              .filter((item) => item.ticketNo % 2 === 0)
-              .map((ticket) => {
+            {tickets
+              .slice(0, 3)
+              .map((ticket: ITicket) => {
                 return (
-                  <li key={ticket.ticketNo}>
+                  <li key={ticket.number}>
                     <Turnos
-                      ticket={ticket.ticketNo}
-                      agente={ticket.agente}
-                      escritorio={ticket.escritorio}
+                      ticket={ticket.number}
+                      agente={ticket.agente!}
+                      escritorio={ticket.escritorio! as unknown as number}
                      />
                   </li>
                 );
@@ -67,15 +58,15 @@ function Cola() {
         <div className={styles.lista_historial}>
           <h3>Historial</h3>
           <ul>
-            {data
-              .filter((item) => item.ticketNo % 3 === 0)
-              .map((ticket) => {
+            {tickets
+              .slice(3, 10)
+              .map((ticket: ITicket) => {
                 return (
-                  <li key={ticket.ticketNo}>
+                  <li key={ticket.number}>
                     <Historial
-                      ticket={ticket.ticketNo}
-                      agente={ticket.agente}
-                      escritorio={ticket.escritorio}
+                      ticket={ticket.number}
+                      agente={ticket.agente!}
+                      escritorio={ticket.escritorio! as unknown as number}
                     />
                   </li>
                 );

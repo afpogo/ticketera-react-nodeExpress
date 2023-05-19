@@ -1,16 +1,20 @@
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import Login from '../components/Login';
 import styles from './syles.module.scss'
-import { getUsuarioStorage } from '@/helpers/getUsuarioStorage';
+import { getUsuarioStorage } from '@/pages/helpers/getUsuarioStorage';
 import { redirect } from 'next/dist/server/api-utils';
 import { useRouter } from 'next/router';
 
 function Ingresar() {
     const [usuario] = useState(getUsuarioStorage);
-    const {agente, escritorio} = usuario;
+    const {agente, password, escritorio} = usuario;
     const router = useRouter();
-    if(agente && escritorio) router.push('/escritorio')
-    else router.push('/ingresar')
+
+    useEffect(() => {
+        if(password === 'llk11') router.replace('/escritorio')
+        else router.replace('/ingresar')
+    }, [agente, escritorio, password, router]);
+
     return (
         <div className={styles.ingresar}>
             <Login />
