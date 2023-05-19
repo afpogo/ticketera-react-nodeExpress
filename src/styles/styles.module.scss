@@ -4,13 +4,14 @@
     height: 100vh;
     display: grid;
     position: absolute;
-    grid-template: 0.5fr 5fr / 23% auto;
+    grid-template: 0.5fr 5fr / 17% auto;
+    overflow: hidden;
     grid-template-areas:
         "logo content"
         "sidebar content";
-    transition: 500ms ease-in-out .5s;
+    transition: grid-template-columns 500ms ease-in-out .5s;
     &__off {
-        grid-template-columns: 5% auto;
+        grid-template-columns: 0% auto;
     }
     .content {
         grid-area: content;

@@ -5,19 +5,18 @@ import Header from './header';
 import Sidebar from './sidebar';
 import MenuSideBar from './header/components/menuSideBar';
 import ScopeBarBtns from './sidebar/components/scopeBarBtns';
+import { IUIContext, useUI } from '../context/UiContext';
 interface ILayout {
   children: React.ReactNode;
 }
 export default function Layout({ children }: ILayout) {
-  const [onof, setOnof] = useState(false);
+  const { ocultarMenu } = useUI() as IUIContext;
+  // const [onof, setOnof] = useState(false);
   return (
-    <section className={clsx(styles.dashboard, { [styles.dashboard__off]: onof })}>
+    <section className={clsx(styles.dashboard, { [styles.dashboard__off]: !ocultarMenu })}>
       {/* Header */}
       <Header>
-        <MenuSideBar
-          close={onof}
-          btnmenu={setOnof}
-        />
+        <MenuSideBar />
       </Header>
       {/* Sidebar */}
       <Sidebar>

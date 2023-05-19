@@ -4,8 +4,13 @@
     width: 100%;
     background-image: linear-gradient(to bottom, #8c7a9f, #937da2, #9a80a5, #a283a8, #a986ab, #b089ad, #b68baf, #bd8eb1, #c491b3, #cc94b4, #d398b6, #da9bb7);
     position: relative;
-    overflow: hidden;
+    overflow: hiden;
     padding: v.$paddPage;
+    transition: visibility 10ms ease-in-out .5s;
+
+    &__hideMenu {
+        padding: 0;
+    }
 
     & > a {
         width: 100%;

@@ -6,6 +6,11 @@
     background-image: linear-gradient(to top, #8c7a9f, #967ea3, #9f82a7, #a986ab, #b38aae);
     @include v.flex(row, space-around);
     flex-wrap: wrap;
+    // transition: visibility 10ms ease-in-out 1s;
+
+    // &__hideMenu {
+    //     visibility: none;
+    // }
 
     .logo {
         width: min-content;

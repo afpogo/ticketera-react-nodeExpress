@@ -3,6 +3,7 @@
 .menuSideBar {
     width: max-content;
     @include v.flex();
+    overflow: hidden;
 
     & > /* Definir estilos para el botón */
     .boton {

@@ -1,0 +1,34 @@
+@use "@/styles/sass/index.module.scss" as v;
+
+.newticketContainer {
+    @include v.flex(column, flex-start, center);
+    height: 90vh;
+    padding-inline: 48px;
+    padding-block: 35px;
+    .createCont {
+        width: 100%;
+        height: 25vh;
+        @include v.flex(column, space-around, center);
+        .title {
+            font-size: v.fs(huge);
+            align-self: center;
+        }
+
+    }
+
+    .numberInfo {
+        width: 100%;
+        height: 45vh;
+        @include v.flex(column);
+
+        & > p:first-child {
+            font-size: v.fs(enormhuge);
+            color: v.$color-error;
+        }
+        & > p:last-child {
+            font-size: v.fs(small);
+            line-height: 0px;
+            color: v.$darkergrey;
+        }
+    }
+}

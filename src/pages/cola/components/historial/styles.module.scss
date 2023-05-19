@@ -1,0 +1,19 @@
+@use "@/styles/sass/index.module.scss" as v;
+
+.historialCont {
+    width: 100%;
+    // height: 2vmax;
+    p {
+        font-size: v.fs(normal);
+        font-weight: 600;
+    }
+
+    .ticketInfo {
+        @include v.flex(row, flex-start);
+        padding-block-start: 10px;
+        p {
+            font-size: v.fs(small);
+        }
+        color: v.$darkgrey;
+    }
+}

@@ -2,6 +2,7 @@ import clsx from 'clsx';
 import styles from './styles.module.scss'
 import { useState, ChangeEvent, FormEvent } from "react"
 import { useRouter } from 'next/router';
+import { log } from 'console';
 
 export default function Login() {
     const router = useRouter();
@@ -53,6 +54,10 @@ export default function Login() {
 
     const handleSubmit = (event: FormEvent<HTMLFormElement>) => {
         event.preventDefault();
+        const {user, password} = login;
+        console.log(user);
+        localStorage.setItem('username', user);
+        localStorage.setItem('password', password);
         router.push('/escritorio');
     }
     return (

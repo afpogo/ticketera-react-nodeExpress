@@ -1,0 +1,46 @@
+@use "@/styles/sass/index.module.scss" as v;
+.colaCont {
+  height: 90vh;
+  padding-inline: 48px;
+  padding-block: 35px;
+  .title {
+    font-size: v.fs(big);
+    font-weight: 700;
+    font-style: italic;
+    font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI",
+      Roboto, Oxygen, Ubuntu, Cantarell, "Open Sans", "Helvetica Neue",
+      sans-serif;
+  }
+
+  .turneroCont {
+    width: 100%;
+    @include v.flex();
+    padding-block-start: 29px;
+    .lista_turnos {
+      @include v.halfGridCenter();
+    }
+    .lista_historial {
+      @include v.halfGridCenter();
+    }
+  }
+}
+.lista_turnos {
+  ul {
+    @include v.flex(column, space-around);
+    width: 100%;
+    height: 70vh;
+  }
+}
+.lista_historial {
+  width: 100%;
+  height: 70vh;
+  position: relative;
+  ul {
+    width: 100%;
+    height: 33vh;
+    list-style: none;
+    text-decoration: none;
+    position: absolute;
+    @include v.flex(column, space-around, flex-start);
+  }
+}

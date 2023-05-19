@@ -1,0 +1,16 @@
+@use "@/styles/sass/index.module.scss" as v;
+.turnoCont {
+    .ticketNum {
+        font-size: v.fs(enormhuge);
+        color: v.$color-info;
+        text-align: center;
+    }
+    .ticketInfo {
+        width: 100%;
+        @include v.flex(column);
+        p{
+            font-size: v.fs(small);
+        }
+
+    }
+}

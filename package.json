@@ -1,6 +1,6 @@
 {
   "name": "ticketera",
-  "version": "0.1.0",
+  "version": "0.2.0",
   "private": true,
   "scripts": {
     "dev": "next dev",
@@ -19,9 +19,11 @@
     "next": "13.3.0",
     "react": "18.2.0",
     "react-dom": "18.2.0",
+    "socket.io-client": "^4.6.1",
     "typescript": "5.0.4"
   },
   "devDependencies": {
+    "@types/socket.io": "^3.0.2",
     "autoprefixer": "^10.4.14",
     "postcss": "^8.4.21",
     "sass": "^1.62.0",
